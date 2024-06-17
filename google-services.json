@@ -43,6 +43,42 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:859629851148:android:56cb79e8ccda587ce29429",
+        "android_client_info": {
+          "package_name": "com.ryan.rhaenyra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKaBWml_3CV7llooUSFHtw4Dn3851xWvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "859629851148-04vg4dhfi7b854d6dieslbov1u0obs9s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ryan.soho"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:859629851148:android:057af57c74ffbed4e29429",
         "android_client_info": {
           "package_name": "com.ryan.soho"

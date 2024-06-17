@@ -7,7 +7,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDisplayName</key>
-    <string>Soho</string>
+    <string>Rhaenyra</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -27,13 +27,13 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.ryan.soho</string>
+          <string>com.ryan.rhaenyra</string>
         </array>
       </dict>
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.googleusercontent.apps.859629851148-04vg4dhfi7b854d6dieslbov1u0obs9s</string>
+          <string>com.googleusercontent.apps.859629851148-vemlb5q7inmph6h4ajofcrs6aisn4ksh</string>
         </array>
       </dict>
     </array>

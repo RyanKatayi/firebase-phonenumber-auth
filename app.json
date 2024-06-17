@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Soho",
-    "slug": "Soho",
+    "name": "Rhaenyra",
+    "slug": "Rhaenyra",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ryan.soho",
+      "bundleIdentifier": "com.ryan.rhaenyra",
       "googleServicesFile": "./GoogleService-Info.plist"
     },
     "plugins": [
@@ -31,14 +31,14 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "android": {
+      "package": "com.ryan.rhaenyra",
+      "googleServicesFile": "./google-services.json"
+    },
     "extra": {
       "eas": {
-        "projectId": "d6caaada-8848-45b6-a33a-1e5ebd768a95"
+        "projectId": "19d08825-7615-4efd-9740-e7be0eb46528"
       }
-    },
-    "android": {
-      "package": "com.ryan.soho",
-      "googleServicesFile": "./google-services.json"
     }
   }
 }

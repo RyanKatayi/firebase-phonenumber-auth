@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
@@ -7,6 +7,17 @@ const App = () => {
     const [otp, setOtp] = useState('');
     const [confirmation, setConfirmation] = useState(null);
     const [isOtpRequested, setIsOtpRequested] = useState(false);
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged((user) => {
+            if (user) {
+                Alert.alert('Success', 'You have successfully signed in.');
+                // Hide OTP input or navigate away
+                setIsOtpRequested(false);
+            }
+        });
+        return subscriber; // Unsubscribe on unmount
+    }, []);
 
     const handleRequestOtp = async () => {
         if (!phoneNumber) {
@@ -33,8 +44,7 @@ const App = () => {
 
         try {
             await confirmation.confirm(otp);
-            Alert.alert('Success', 'You have successfully signed in.');
-            // Handle successful sign-in here
+            // Handle successful sign-in here; the `onAuthStateChanged` effect will also run
         } catch (error) {
             console.error('Error verifying OTP:', error);
             Alert.alert('Error', 'Invalid OTP. Please try again.');
