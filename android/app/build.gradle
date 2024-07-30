@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.ryan.soho'
+    namespace 'com.ryan.rhaenyra'
     defaultConfig {
-        applicationId 'com.ryan.soho'
+        applicationId 'com.ryan.rhaenyra'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

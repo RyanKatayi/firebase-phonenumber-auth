@@ -1,4 +1,4 @@
-package com.ryan.soho
+package com.ryan.rhaenyra
 
 import android.app.Application
 import android.content.res.Configuration

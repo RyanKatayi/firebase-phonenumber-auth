@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+
 import auth from '@react-native-firebase/auth';
 
 const App = () => {
@@ -26,13 +27,15 @@ const App = () => {
         }
 
         try {
-            const confirmationResult = await auth().signInWithPhoneNumber(phoneNumber);
+            const formattedPhoneNumber = `+${phoneNumber.replace(/\D/g, '')}`;
+            console.log('Formatted Phone Number:', formattedPhoneNumber); // Debug log
+            const confirmationResult = await auth().signInWithPhoneNumber(formattedPhoneNumber);
             setConfirmation(confirmationResult);
             setIsOtpRequested(true);
             Alert.alert('OTP Requested', 'An OTP has been sent to your phone number.');
         } catch (error) {
             console.error('Error requesting OTP:', error);
-            Alert.alert('Error', 'Failed to request OTP. Please try again.');
+            Alert.alert('Error', `Failed to request OTP: ${error.message}`);
         }
     };
 
@@ -47,7 +50,7 @@ const App = () => {
             // Handle successful sign-in here; the `onAuthStateChanged` effect will also run
         } catch (error) {
             console.error('Error verifying OTP:', error);
-            Alert.alert('Error', 'Invalid OTP. Please try again.');
+            Alert.alert('Error', `Invalid OTP: ${error.message}`);
         }
     };
 
