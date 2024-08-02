@@ -1,112 +1,40 @@
 {
   "project_info": {
-    "project_number": "859629851148",
-    "project_id": "test12-bab52",
-    "storage_bucket": "test12-bab52.appspot.com"
+    "project_number": "1000486184934",
+    "project_id": "fir-auth-app-19534",
+    "storage_bucket": "fir-auth-app-19534.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:859629851148:android:c33431fa554c04a0e29429",
-        "android_client_info": {
-          "package_name": "com.rnjourney.RNJourney"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAKaBWml_3CV7llooUSFHtw4Dn3851xWvU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "859629851148-04vg4dhfi7b854d6dieslbov1u0obs9s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.ryan.soho"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:859629851148:android:56cb79e8ccda587ce29429",
+        "mobilesdk_app_id": "1:1000486184934:android:2362dccb234e42ee291827",
         "android_client_info": {
           "package_name": "com.ryan.rhaenyra"
         }
       },
       "oauth_client": [
         {
-          "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
+          "client_id": "1000486184934-d8o7da613oohv2q0r27cu94t38biufqr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAKaBWml_3CV7llooUSFHtw4Dn3851xWvU"
+          "current_key": "AIzaSyA38jxctb29OhiD5Mznjb5_zm1WC9vNLPU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
+              "client_id": "1000486184934-d8o7da613oohv2q0r27cu94t38biufqr.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "859629851148-04vg4dhfi7b854d6dieslbov1u0obs9s.apps.googleusercontent.com",
+              "client_id": "1000486184934-s2cidfm24b79ndf57e0m7igj37ggf802.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.ryan.soho"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:859629851148:android:057af57c74ffbed4e29429",
-        "android_client_info": {
-          "package_name": "com.ryan.soho"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAKaBWml_3CV7llooUSFHtw4Dn3851xWvU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "859629851148-o6k95b5ismm5p5p6076cm9rmh1bocqdt.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "859629851148-04vg4dhfi7b854d6dieslbov1u0obs9s.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.ryan.soho"
+                "bundle_id": "com.ryan.rhaenyra"
               }
             }
           ]

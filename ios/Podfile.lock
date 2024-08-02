@@ -11,6 +11,8 @@ PODS:
     - ExpoModulesCore
   - ExpoFont (12.0.7):
     - ExpoModulesCore
+  - ExpoHead (3.5.20):
+    - ExpoModulesCore
   - ExpoKeepAwake (13.0.2):
     - ExpoModulesCore
   - ExpoModulesCore (1.12.15):
@@ -30,6 +32,28 @@ PODS:
     - React-jsinspector
     - React-NativeModulesApple
     - React-RCTAppDelegate
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - EXSplashScreen (0.27.5):
+    - DoubleConversion
+    - ExpoModulesCore
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
     - React-utils
@@ -1056,7 +1080,7 @@ PODS:
   - React-Mapbuffer (0.74.2):
     - glog
     - React-debug
-  - react-native-safe-area-context (4.10.5):
+  - react-native-safe-area-context (4.10.8):
     - React-Core
   - React-nativeconfig (0.74.2)
   - React-NativeModulesApple (0.74.2):
@@ -1288,6 +1312,8 @@ PODS:
     - React-perflogger (= 0.74.2)
     - React-utils (= 0.74.2)
   - RecaptchaInterop (100.0.0)
+  - RNCClipboard (1.5.1):
+    - React-Core
   - RNCPicker (2.7.7):
     - React-Core
   - RNFBApp (20.1.0):
@@ -1318,6 +1344,49 @@ PODS:
     - React-ImageManager
     - React-NativeModulesApple
     - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNReanimated (3.14.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNScreens (3.33.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-RCTImage
     - React-rendererdebug
     - React-utils
     - ReactCommon/turbomodule/bridging
@@ -1355,8 +1424,10 @@ DEPENDENCIES:
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
   - ExpoFileSystem (from `../node_modules/expo-file-system/ios`)
   - ExpoFont (from `../node_modules/expo-font/ios`)
+  - ExpoHead (from `../node_modules/expo-router/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
+  - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -1411,11 +1482,14 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCClipboard (from `../node_modules/@react-native-community/clipboard`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -1455,10 +1529,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-file-system/ios"
   ExpoFont:
     :path: "../node_modules/expo-font/ios"
+  ExpoHead:
+    :path: "../node_modules/expo-router/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
+  EXSplashScreen:
+    :path: "../node_modules/expo-splash-screen/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   fmt:
@@ -1564,6 +1642,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-community/clipboard"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
   RNFBApp:
@@ -1574,6 +1654,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/crashlytics"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   Yoga:
@@ -1587,8 +1671,10 @@ SPEC CHECKSUMS:
   ExpoAsset: 39e60dc31b16e204a9949caf3edb6dcda322e667
   ExpoFileSystem: 80bfe850b1f9922c16905822ecbf97acd711dc51
   ExpoFont: 43b69559cef3d773db57c7ae7edd3cb0aa0dc610
+  ExpoHead: 3e8eacccdad1256f0643b657d89bf972c27afb1d
   ExpoKeepAwake: 3b8815d9dd1d419ee474df004021c69fdd316d08
   ExpoModulesCore: 2731dc119f8c1400636a994df4efbc19522defbd
+  EXSplashScreen: d8b3c547b9b18a41d80c6f6b274c4c26664febd4
   FBLazyVector: 4bc164e5b5e6cfc288d2b5ff28643ea15fa1a589
   Firebase: 26b040b20866a55f55eb3611b9fcf3ae64816b86
   FirebaseAppCheckInterop: 0dd062c9926a76332ca5711dbed6f1a9ac540b54
@@ -1633,7 +1719,7 @@ SPEC CHECKSUMS:
   React-jsitracing: 34bc0fbc606f69e66f05286d94d5cd6cbf2ef562
   React-logger: 29fa3e048f5f67fe396bc08af7606426d9bd7b5d
   React-Mapbuffer: 86703e9e4f6522053568300827b436ccc01e1101
-  react-native-safe-area-context: a240ad4b683349e48b1d51fed1611138d1bdad97
+  react-native-safe-area-context: b7daa1a8df36095a032dff095a1ea8963cb48371
   React-nativeconfig: 5d452e509d6fbedc1522e21b566451fc673ac6b7
   React-NativeModulesApple: 6560431301ffdab8df6212cc8c8eff779396d8e0
   React-perflogger: 32ed45d9cee02cf6639acae34251590dccd30994
@@ -1658,11 +1744,14 @@ SPEC CHECKSUMS:
   React-utils: 5a40a1bb87d8c2d42a6bbbb7ead6d95785ca6042
   ReactCommon: e5866ad8f7487779853fa3fe33f1c075207c3262
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCPicker: b7873ba797dc586bfaf3307d737cbdc620a9ff3e
   RNFBApp: 1ae7462cddf74a49df206d3418bc0170f8fa53e5
   RNFBAuth: 9be3cd8b0f9083b06da34d52c146e66605d2ee74
   RNFBCrashlytics: f8e899ea95991b769802cf4cb7a0eb362b6ab0f7
   RNGestureHandler: 20a4307fd21cbff339abfcfa68192f3f0a6a518b
+  RNReanimated: f6b214732ff303cb815ac81b26bbfd2070b69f43
+  RNScreens: 7868e19bb8b7643a990fd7a7e037796c4c9b4ff9
   RNVectorIcons: 7ac7aaa83f8f3d4c7c0f7daea5a431e91a29b0cd
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: 9ad2c02dbd9811bb5a35fe23081cb0f5d5a3f9dd
