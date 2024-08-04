@@ -1,45 +1,49 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Stack } from 'expo-router';
-import auth from '@react-native-firebase/auth';
-import { useRouter } from 'expo-router';
+import SignInScreen from './auth';
+import Tabs from './(tabs)';
+import WelcomeScreen from './welcome';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function Layout() {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
-  const router = useRouter();
 
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged((user) => {
-      setUser(user);
-      if (initializing) setInitializing(false);
-    });
-
-    return subscriber; // unsubscribe on unmount
+    const timer = setTimeout(() => {
+      setUser(null); 
+      setInitializing(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (!initializing) {
-      if (!user) {
-        router.replace('/auth'); // Redirect to sign-in screen if not authenticated
-      } else {
-        router.replace('/welcome'); // Redirect to welcome screen if authenticated
-      }
-    }
-  }, [initializing, user]);
-
-  if (initializing) return null; // Show a loading indicator or splash screen here if necessary
+  if (initializing) return null; 
 
   return (
-    <Stack>
+    <Stack.Navigator>
       {user ? (
         <>
-          <Stack.Screen name="welcome" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="welcome"
+            component={WelcomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="(tabs)"
+            component={Tabs}
+            options={{ headerShown: false }}
+          />
         </>
       ) : (
-        <Stack.Screen name="auth" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="auth"
+          component={SignInScreen}
+          options={{ headerShown: false }}
+        />
       )}
-    </Stack>
+    </Stack.Navigator>
   );
 }

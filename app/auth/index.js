@@ -21,11 +21,11 @@ export default function SignInScreen() {
     const subscriber = auth().onAuthStateChanged((user) => {
       if (user) {
         Alert.alert('Success', 'You have successfully signed in.');
-        router.push('/(tabs)'); // Navigate to the home screen with tabs
+        router.push('/(tabs)'); 
         setIsOtpRequested(false);
       }
     });
-    return subscriber; // Unsubscribe on unmount
+    return subscriber; 
   }, []);
 
   useEffect(() => {
