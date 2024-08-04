@@ -8,6 +8,19 @@ Next, navigate into the project directory:
 ```bash
 cd firebase-phonenumber-auth
 ```
+
+Remeber to run the set up commands
+
+```bash
+npm install
+```
+
+And
+
+```bash
+npm install --legacy-peer-deps
+```
+
 ### Prebuilding Your Project
 
 Before proceeding, prebuild your project using the following command:
