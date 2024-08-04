@@ -2,18 +2,18 @@ import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'reac
 import React, { useEffect, useRef, useState } from 'react';
 
 import Clipboard from '@react-native-community/clipboard';
+import CountryPicker from 'react-native-country-picker-modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import PhoneInput from 'react-native-phone-number-input';
 import auth from '@react-native-firebase/auth';
 import { useRouter } from 'expo-router';
 
 export default function SignInScreen() {
+  const [countryCode, setCountryCode] = useState('ZM');
+  const [callingCode, setCallingCode] = useState('260');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState('');
   const [otp, setOtp] = useState(Array(6).fill(''));
   const [confirmation, setConfirmation] = useState(null);
   const [isOtpRequested, setIsOtpRequested] = useState(false);
-  const phoneInputRef = useRef(null);
   const otpInputRefs = useRef([]);
   const router = useRouter();
 
@@ -21,7 +21,7 @@ export default function SignInScreen() {
     const subscriber = auth().onAuthStateChanged((user) => {
       if (user) {
         Alert.alert('Success', 'You have successfully signed in.');
-        router.push('/(tabs)'); 
+        router.push('/(tabs)'); // Navigate to the home screen with tabs
         setIsOtpRequested(false);
       }
     });
@@ -44,23 +44,27 @@ export default function SignInScreen() {
   }, [isOtpRequested]);
 
   const handleRequestOtp = async () => {
-    const phoneValid = phoneInputRef.current?.isValidNumber(phoneNumber);
-
-    if (!phoneNumber || !phoneValid) {
+    if (!phoneNumber) {
       Alert.alert('Invalid Input', 'Please enter a valid phone number.');
       return;
     }
-
+  
     try {
-      const confirmationResult = await auth().signInWithPhoneNumber(formattedPhoneNumber);
+      const fullPhoneNumber = `+${callingCode}${phoneNumber}`;
+      console.log('Requesting OTP for:', fullPhoneNumber);
+  
+      const confirmationResult = await auth().signInWithPhoneNumber(fullPhoneNumber);
       setConfirmation(confirmationResult);
       setIsOtpRequested(true);
+  
+      console.log('OTP requested successfully, confirmation result:', confirmationResult);
       Alert.alert('OTP Requested', 'An OTP has been sent to your phone number.');
     } catch (error) {
       console.error('Error requesting OTP:', error);
       Alert.alert('Error', 'Failed to request OTP. Please try again.');
     }
   };
+  
 
   const handleVerifyOtp = async (otpCode = otp.join('')) => {
     if (otpCode.length !== 6 || !confirmation) {
@@ -96,19 +100,26 @@ export default function SignInScreen() {
         <>
           <Text style={styles.title}>Let's get started!</Text>
           <Text style={styles.subtitle}>Enter your phone number. We will send you a confirmation code there.</Text>
-          <PhoneInput
-            ref={phoneInputRef}
-            defaultValue={phoneNumber}
-            defaultCode="US"
-            layout="first"
-            onChangeText={(text) => setPhoneNumber(text)}
-            onChangeFormattedText={(text) => setFormattedPhoneNumber(text)}
-            withDarkTheme
-            withShadow
-            autoFocus
-            containerStyle={styles.phoneContainer}
-            textContainerStyle={styles.textInput}
-          />
+          <View style={styles.inputContainer}>
+            <CountryPicker
+              countryCode={countryCode}
+              withFlag
+              withCallingCode
+              withFilter
+              onSelect={(country) => {
+                setCountryCode(country.cca2);
+                setCallingCode(country.callingCode[0]);
+              }}
+              containerButtonStyle={styles.countryPicker}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Mobile number"
+              keyboardType="phone-pad"
+              value={phoneNumber}
+              onChangeText={setPhoneNumber}
+            />
+          </View>
           <TouchableOpacity style={styles.button} onPress={handleRequestOtp}>
             <Text style={styles.buttonText}>Sign up</Text>
           </TouchableOpacity>
@@ -116,7 +127,7 @@ export default function SignInScreen() {
       ) : (
         <>
           <Text style={styles.title}>6-digit code</Text>
-          <Text style={styles.subtitle}>Code sent to {formattedPhoneNumber}</Text>
+          <Text style={styles.subtitle}>Code sent to {phoneNumber}</Text>
           <View style={styles.otpContainer}>
             {otp.map((digit, index) => (
               <TextInput
@@ -162,13 +173,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  phoneContainer: {
+  inputContainer: {
+    flexDirection: 'row',
     width: '100%',
-    height: 50,
     marginBottom: 20,
   },
-  textInput: {
-    paddingVertical: 0,
+  countryPicker: {
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    backgroundColor: '#fff',
   },
   otpContainer: {
     flexDirection: 'row',
