@@ -26,7 +26,8 @@
             "useFrameworks": "static"
           }
         }
-      ]
+      ],
+      "expo-router"
     ],
     "web": {
       "favicon": "./assets/favicon.png"
@@ -38,8 +39,7 @@
     "extra": {
       "eas": {
         "projectId": "19d08825-7615-4efd-9740-e7be0eb46528"
-      },
-      "expo.router.appRoot": "./app"
+      }
     },
     "scheme": "com.ryan.rhaenyra"
   }

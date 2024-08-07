@@ -1,49 +1,28 @@
-import React, { useEffect, useState } from 'react';
-
-import SignInScreen from './auth';
-import Tabs from './(tabs)';
-import WelcomeScreen from './welcome';
-import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
+import { AuthProvider } from './AuthContext';
+// app/_layout.js
+import { Stack } from 'expo-router';
+import auth from '@react-native-firebase/auth';
+import { useEffect } from 'react';
+import { useRouter } from 'expo-router';
 
 export default function Layout() {
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setUser(null); 
-      setInitializing(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
+    const unsubscribe = auth().onAuthStateChanged((user) => {
+      if (user) {
+        router.replace('/Home');
+      } else {
+        router.replace('/Welcome');
+      }
+    });
 
-  if (initializing) return null; 
+    return () => unsubscribe();
+  }, [router]);
 
   return (
-    <Stack.Navigator>
-      {user ? (
-        <>
-          <Stack.Screen
-            name="welcome"
-            component={WelcomeScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="(tabs)"
-            component={Tabs}
-            options={{ headerShown: false }}
-          />
-        </>
-      ) : (
-        <Stack.Screen
-          name="auth"
-          component={SignInScreen}
-          options={{ headerShown: false }}
-        />
-      )}
-    </Stack.Navigator>
+    <AuthProvider>
+      <Stack />
+    </AuthProvider>
   );
 }

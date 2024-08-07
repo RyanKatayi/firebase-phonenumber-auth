@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
+// app/Welcome.js
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
+import { router } from 'expo-router';
 
-export default function SettingsScreen() {
+function Welcome() {
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Settings Screen</Text>
+      <Text style={styles.title}>Welcome to Our App!</Text>
+      <Button title="Get Started" onPress={() => router.push('/PhoneSignIn')} />
     </View>
   );
 }
@@ -21,6 +25,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 20,
   },
 });
+
+export default Welcome;
