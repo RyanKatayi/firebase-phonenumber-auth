@@ -1,12 +1,10 @@
 import { AuthProvider } from './AuthContext';
-// app/_layout.js
 import { Stack } from 'expo-router';
 import auth from '@react-native-firebase/auth';
+import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { useRouter } from 'expo-router';
 
 export default function Layout() {
-  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged((user) => {
@@ -22,7 +20,7 @@ export default function Layout() {
 
   return (
     <AuthProvider>
-      <Stack />
+      <Stack screenOptions={{ headerShown: false }}/>
     </AuthProvider>
   );
 }

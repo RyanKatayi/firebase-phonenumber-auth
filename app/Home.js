@@ -1,22 +1,20 @@
-// app/Home.js
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
 import React from 'react';
-import auth from '@react-native-firebase/auth';
-import { useRouter } from 'expo-router';
+import { router } from 'expo-router';
+import { useAuth } from './AuthContext';
 
-function Home() {
-  const router = useRouter();
+function HomeScreen() {
+  const { signOut } = useAuth();
 
-  const signOut = () => {
-    auth().signOut();
-    router.replace('/Welcome');
+  const handleSignOut = async () => {
+    await signOut();
+    router.replace('/Welcome'); // Navigate to Welcome screen
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Home Screen!</Text>
-      <Button title="Sign Out" onPress={signOut} />
+      <Button title="Sign Out" onPress={handleSignOut} />
     </View>
   );
 }
@@ -29,11 +27,6 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f5f5f5',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
 });
 
-export default Home;
+export default HomeScreen;

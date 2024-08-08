@@ -1,17 +1,15 @@
-// app/PhoneSignIn.js
 import { ActivityIndicator, Alert, Button, StyleSheet, TextInput, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import auth from '@react-native-firebase/auth';
+import { router } from 'expo-router';
 import { useAuth } from './AuthContext';
-import { useRouter } from 'expo-router';
 
 function PhoneSignIn() {
   const { confirm, setConfirm } = useAuth();
   const [code, setCode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged((user) => {
