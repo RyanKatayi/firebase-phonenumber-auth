@@ -18,8 +18,20 @@ npm install
 And
 
 ```bash
-npm install --legacy-peer-deps
+
+npx expo install firebase
+
+npm install @react-native-firebase/app @react-native-firebase/auth
+
+npm install expo-router
+
+npm install @react-navigation/native
+npm install @react-navigation/native-stack
+
+npx expo install react-native-screens react-native-safe-area-context
+
 ```
+
 
 ### Prebuilding Your Project
 
